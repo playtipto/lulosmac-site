@@ -1,0 +1,53 @@
+@font-face { font-family: 'Fredoka TR'; font-weight: 500; font-display: swap; src: url(fonts/fredoka-tr-500.woff2) format('woff2'); }
+@font-face { font-family: 'Fredoka TR'; font-weight: 600; font-display: swap; src: url(fonts/fredoka-tr-600.woff2) format('woff2'); }
+@font-face { font-family: 'Fredoka TR'; font-weight: 700; font-display: swap; src: url(fonts/fredoka-tr-700.woff2) format('woff2'); }
+:root {
+  color-scheme: light;
+  --cizgi: #362234; --kum: #FBD7B2; --krem: #FFF8E1; --sari: #FBD060; --turkuaz: #33ADA7;
+  --mavi: #4958B5; --soluk: #7A6B78; --gok: #D3F2EC;
+  --yazi: 'Fredoka TR', ui-rounded, 'Trebuchet MS', system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html { background: var(--kum); }
+body { margin: 0; background: var(--kum); color: var(--cizgi); font-family: var(--yazi); font-weight: 500; font-size: 17px; line-height: 1.6; -webkit-text-size-adjust: 100%; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--cizgi); text-decoration-color: var(--turkuaz); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+:focus-visible { outline: 4px solid var(--mavi); outline-offset: 3px; border-radius: 10px; }
+.hap { display: inline-flex; align-items: center; gap: .4em; padding: .45em 1em; border: 3px solid var(--cizgi); border-radius: 999px; background: var(--krem); color: var(--cizgi); font: inherit; font-weight: 600; font-size: 15px; line-height: 1.1; text-decoration: none; box-shadow: 0 4px 0 var(--cizgi); cursor: pointer; white-space: nowrap; }
+.hap:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--cizgi); }
+.hap[aria-current="page"] { background: var(--sari); }
+
+.serit { background: var(--gok); border-bottom: 5px solid var(--cizgi); padding-block: 12px; padding-inline: 16px; }
+.serit .ic { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.serit .logo img { width: 132px; }
+.serit nav { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.sayfa { padding-block: 34px 56px; padding-inline: 16px; }
+.kagit { position: relative; max-width: 760px; margin: 0 auto; background: var(--krem); border: 4px solid var(--cizgi); border-radius: 26px; box-shadow: 0 7px 0 var(--cizgi); padding: 26px 22px 30px; }
+@media (min-width: 640px) { .kagit { padding: 34px 40px 40px; } }
+.kagit .kisi { position: absolute; right: -10px; top: -58px; width: 112px; pointer-events: none; }
+@media (min-width: 640px) { .kagit .kisi { width: 150px; right: -30px; top: -84px; } }
+.ust-yazi { margin: 0 0 4px; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--soluk); }
+h1 { margin: 0 0 4px; font-weight: 700; font-size: clamp(32px, 8vw, 46px); line-height: 1.05; text-wrap: balance; padding-right: 88px; }
+@media (min-width: 640px) { h1 { padding-right: 110px; } }
+.tarih { margin: 0 0 18px; color: var(--soluk); font-weight: 600; font-size: 15px; }
+.kisaca { margin: 0 0 6px; background: var(--gok); border: 3px solid var(--cizgi); border-radius: 18px; padding: 14px 16px; font-weight: 600; }
+h2 { margin: 28px 0 4px; font-weight: 700; font-size: 21px; line-height: 1.25; text-wrap: balance; }
+.kagit p { max-width: 66ch; }
+section > p { margin: 0; }
+.iletisim { margin-top: 26px; padding-top: 6px; border-top: 3px dashed var(--cizgi); }
+.iletisim.ust { margin-top: 18px; }
+.eposta-satir { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 8px 0 12px; }
+.eposta { font-weight: 700; font-size: 18px; background: #fff; border: 2px dashed var(--cizgi); border-radius: 10px; padding: 5px 12px; text-decoration: none; overflow-wrap: anywhere; }
+.yayinci { margin: 0; font-size: 15px; overflow-wrap: anywhere; }
+.geri { margin-top: 30px; }
+
+footer { background: var(--cizgi); color: var(--krem); text-align: center; padding-block: 24px; padding-inline: 16px; font-weight: 600; font-size: 15px; }
+footer p { margin: 0 0 8px; }
+footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; }
+footer a { color: var(--sari); text-decoration-color: var(--sari); }
+
+.dis { min-height: 100svh; display: grid; place-items: center; text-align: center; padding-block: 40px; padding-inline: 16px; background: var(--gok); }
+.dis img { width: min(60vw, 260px); margin: 0 auto 10px; }
+.dis h1 { padding: 0; margin-bottom: 6px; }
+.dis p { margin: 0 0 22px; font-size: 19px; }
