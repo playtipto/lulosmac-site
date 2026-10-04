@@ -1,35 +1,35 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lulo Smaç!</title>
-<meta name="description" content="Lulo Spor Okulu yarışa giriyor! 12 şapşal hayvanla tek parmakla plaj voleybolu. Hedef: Büyük Kupa. Reklam yok, veri toplanmaz, internetsiz oynanır.">
-<link rel="canonical" href="https://lulosmac.com/">
+<meta name="description" content="Lulo Sports School joins the race! One-finger beach volleyball with 12 silly animals. Goal: the Big Cup. No ads, no data collected, plays offline.">
+<link rel="canonical" href="https://lulosmac.com/en/">
 <link rel="alternate" hreflang="tr" href="https://lulosmac.com/">
 <link rel="alternate" hreflang="en" href="https://lulosmac.com/en/">
 <link rel="alternate" hreflang="x-default" href="https://lulosmac.com/">
 <meta name="theme-color" content="#D3F2EC">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lulo Smaç!">
 <meta property="og:title" content="Lulo Smaç!">
-<meta property="og:description" content="Lulo Spor Okulu yarışa giriyor! 12 şapşal hayvanla tek parmakla plaj voleybolu. Hedef: Büyük Kupa. Reklam yok, veri toplanmaz, internetsiz oynanır.">
-<meta property="og:url" content="https://lulosmac.com/">
+<meta property="og:description" content="Lulo Sports School joins the race! One-finger beach volleyball with 12 silly animals. Goal: the Big Cup. No ads, no data collected, plays offline.">
+<meta property="og:url" content="https://lulosmac.com/en/">
 <meta property="og:image" content="https://lulosmac.com/img/paylasim.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:locale" content="tr_TR">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="fonts/fredoka-tr-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/fredoka-tr-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/fredoka-tr-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/fredoka-tr-700.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /* Düzen: tek bir plaj dünyası, yukarıdan aşağı: saha (oynanır) → kum → soyunma odası → forma yolu → ebeveyn köşesi → destek ve gizlilik */
-@font-face { font-family: 'Fredoka TR'; font-weight: 500; font-display: swap; src: url(fonts/fredoka-tr-500.woff2) format('woff2'); }
-@font-face { font-family: 'Fredoka TR'; font-weight: 600; font-display: swap; src: url(fonts/fredoka-tr-600.woff2) format('woff2'); }
-@font-face { font-family: 'Fredoka TR'; font-weight: 700; font-display: swap; src: url(fonts/fredoka-tr-700.woff2) format('woff2'); }
+@font-face { font-family: 'Fredoka TR'; font-weight: 500; font-display: swap; src: url(../fonts/fredoka-tr-500.woff2) format('woff2'); }
+@font-face { font-family: 'Fredoka TR'; font-weight: 600; font-display: swap; src: url(../fonts/fredoka-tr-600.woff2) format('woff2'); }
+@font-face { font-family: 'Fredoka TR'; font-weight: 700; font-display: swap; src: url(../fonts/fredoka-tr-700.woff2) format('woff2'); }
 :root {
   color-scheme: light;
   --cizgi: #362234;
@@ -233,42 +233,42 @@ footer a { color: var(--sari); }
 </head>
 <body>
 <main>
-  <section class="saha" id="saha" tabindex="0" aria-label="Oynanabilir plaj sahası. Halka daralınca dokun ya da boşluk tuşuna bas.">
+  <section class="saha" id="saha" tabindex="0" aria-label="Playable beach court. Tap when the ring closes, or press the space bar.">
     <canvas id="arka"></canvas>
-    <img class="logo" id="logo" src="img/logo.webp" alt="Lulo Smaç!" width="1200" height="734">
+    <img class="logo" id="logo" src="../img/logo.webp" alt="Lulo Smaç!" width="1200" height="734">
     <canvas id="on"></canvas>
     <div class="ust">
       <div style="position:relative">
-        <button class="ses" id="ses" aria-pressed="false" aria-label="Sesi aç">
+        <button class="ses" id="ses" aria-pressed="false" aria-label="Turn sound on">
           <svg class="kapali" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 12h6l8-7v22l-8-7H5z" fill="#362234"/><path d="M23 12l7 8M30 12l-7 8" stroke="#362234" stroke-width="3.2" stroke-linecap="round"/></svg>
           <svg class="acik" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 12h6l8-7v22l-8-7H4z" fill="#362234"/><path d="M22 11c2.4 2.6 2.4 7.4 0 10M26 7c4.6 5 4.6 13 0 18" stroke="#362234" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
         </button>
-        <span class="ses-ipucu" id="sesIpucu">Sesli daha güzel!</span>
+        <span class="ses-ipucu" id="sesIpucu">Better with sound!</span>
       </div>
-      <div class="skor" aria-live="polite"><span class="biz">BİZ</span><b id="skorBiz">0</b><b id="skorOnlar">0</b><span class="onlar">KARGALAR</span></div>
-      <span class="sag-haplar"><a class="hap ebeveyn-hap" href="en/" lang="en" hreflang="en" aria-label="English">EN</a><a class="hap ebeveyn-hap" href="#ebeveyn">Ebeveynler</a></span>
+      <div class="skor" aria-live="polite"><span class="biz">US</span><b id="skorBiz">0</b><b id="skorOnlar">0</b><span class="onlar">CROWS</span></div>
+      <span class="sag-haplar"><a class="hap ebeveyn-hap" href="../" lang="tr" hreflang="tr" aria-label="Türkçe">TR</a><a class="hap ebeveyn-hap" href="#ebeveyn">Parents</a></span>
     </div>
     <div class="alt">
-      <p class="ipucu" id="ipucu" aria-live="polite">Halka daralınca <b>DOKUN</b>, topu karşıla!</p>
-      <span class="hap sari">Yakında App Store'da</span>
-      <a class="asagi" href="#hikaye">Okulu tanı<svg viewBox="0 0 22 14" aria-hidden="true"><path d="M3 3l8 8 8-8" stroke="#362234" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="ipucu" id="ipucu" aria-live="polite"><b>TAP</b> when the ring closes to bump the ball!</p>
+      <span class="hap sari">Coming soon to the App Store</span>
+      <a class="asagi" href="#hikaye">Meet the school<svg viewBox="0 0 22 14" aria-hidden="true"><path d="M3 3l8 8 8-8" stroke="#362234" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
-    <button class="gizli" id="vurDugme">Topa vur</button>
+    <button class="gizli" id="vurDugme">Hit the ball</button>
   </section>
 
   <section class="bolum hikaye" id="hikaye">
     <svg class="dalga" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 Q 50 0 100 14 T 200 14 T 300 14 T 400 14 T 500 14 T 600 14 T 700 14 T 800 14 T 900 14 T 1000 14 T 1100 14 T 1200 14 V28 H0z" fill="#FBD7B2" stroke="#362234" stroke-width="4"/></svg>
     <div class="ic">
       <figure class="polaroid">
-        <img src="img/takim.webp" alt="Lulo Spor Okulu'nun 12 öğrencisi takım fotoğrafında" width="1600" height="900" loading="lazy">
-        <figcaption>Lulo Spor Okulu · 2026 sezonu</figcaption>
+        <img src="../img/takim.webp" alt="The 12 students of Lulo Sports School in a team photo" width="1600" height="900" loading="lazy">
+        <figcaption>Lulo Sports School · 2026 season</figcaption>
       </figure>
       <div>
-        <p class="ust-yazi">Hikâye</p>
-        <h2>Hedef: Büyük Kupa!</h2>
-        <p class="giris">Lulo Spor Okulu yarışa giriyor! 12 şapşal öğrenci Büyük Kupa için kumda top koşturuyor. Her maç yeni bir macera, her galibiyet yeni bir forma.</p>
-        <p>Önce mahallenin en gürültücü ikilisi Gak ile Guk'u yenmek gerek. Sonra sırada okulun bahçesindeki dev Yutarmatik var.</p>
-        <div class="kahraman-satir"><span class="etiket">2'ye 2 plaj voleybolu</span><span class="etiket">Tek parmakla oynanır</span><span class="etiket">7 sayılık maçlar</span></div>
+        <p class="ust-yazi">Story</p>
+        <h2>Goal: the Big Cup!</h2>
+        <p class="giris">Lulo Sports School joins the race! 12 silly students chase the ball across the sand for the Big Cup. Every match is a new adventure, every win a new jersey.</p>
+        <p>First, beat Gak and Guk, the loudest pair in the neighborhood. Next up: the giant Gobblematic in the school yard.</p>
+        <div class="kahraman-satir"><span class="etiket">2-on-2 beach volleyball</span><span class="etiket">Played with one finger</span><span class="etiket">Matches to 7 points</span></div>
       </div>
     </div>
   </section>
@@ -276,33 +276,33 @@ footer a { color: var(--sari); }
   <section class="bolum soyunma" id="soyunma">
     <svg class="dalga" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 Q 50 0 100 14 T 200 14 T 300 14 T 400 14 T 500 14 T 600 14 T 700 14 T 800 14 T 900 14 T 1000 14 T 1100 14 T 1200 14 V28 H0z" fill="#FFF1D6" stroke="#362234" stroke-width="4"/></svg>
     <div class="ic">
-      <p class="ust-yazi">Soyunma Odası</p>
-      <h2>Dolaba dokun, bakalım kim çıkacak?</h2>
-      <p class="giris">On iki dolap, on iki şapşal. Her birinin bir süper hareketi var, bir de kimsenin düzeltemediği bir huyu.</p>
+      <p class="ust-yazi">Locker Room</p>
+      <h2>Tap a locker. Who will pop out?</h2>
+      <p class="giris">Twelve lockers, twelve sillies. Each one has a super move, and one funny habit nobody can fix.</p>
       <div class="dolap-sira" id="dolaplar"></div>
       <div class="zemin-serit" aria-hidden="true"></div>
       <div class="kart" id="kart" aria-live="polite" hidden>
         <div class="ad"><h3 id="kAd"></h3><span class="numara" id="kNo"></span><span class="tur" id="kTur"></span></div>
         <dl>
-          <div><dt>Şapşallığı</dt><dd id="kHuy"></dd></div>
-          <div><dt>Süper hareketi</dt><dd class="super" id="kSuper"></dd></div>
+          <div><dt>Silly habit</dt><dd id="kHuy"></dd></div>
+          <div><dt>Super move</dt><dd class="super" id="kSuper"></dd></div>
         </dl>
       </div>
-      <p class="alt-not" id="dolapNot">Başta Lulo ile Bumi var; diğerleri kupa yolunda takıma katılıyor.</p>
+      <p class="alt-not" id="dolapNot">Lulo and Bumi start the game; the others join the team on the road to the Cup.</p>
     </div>
   </section>
 
   <section class="bolum forma" id="forma">
     <svg class="dalga" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 Q 50 0 100 14 T 200 14 T 300 14 T 400 14 T 500 14 T 600 14 T 700 14 T 800 14 T 900 14 T 1000 14 T 1100 14 T 1200 14 V28 H0z" fill="#D3F2EC" stroke="#362234" stroke-width="4"/></svg>
     <div class="ic">
-      <div class="forma-sahne"><img id="formaResim" src="img/f_yamali.webp" alt="Lulo, Yamalı Tişört ile" width="512" height="512"></div>
+      <div class="forma-sahne"><img id="formaResim" src="../img/f_yamali.webp" alt="Lulo in the Patched Tee" width="512" height="512"></div>
       <div class="galibiyet">
-        <p class="ust-yazi">Forma yolu</p>
-        <h2>Kazandıkça forma parlar</h2>
-        <p class="giris" style="margin-bottom:8px">Kaydır, Lulo'nun formasını galibiyetlerle büyüt.</p>
-        <output id="galibiyetSayi" for="galibiyet">0 galibiyet</output>
-        <span class="asama-adi" id="asamaAdi">Yamalı Tişört</span>
-        <label class="gizli" for="galibiyet">Galibiyet sayısı</label>
+        <p class="ust-yazi">Jersey road</p>
+        <h2>Win more, shine more</h2>
+        <p class="giris" style="margin-bottom:8px">Slide to grow Lulo's jersey with wins.</p>
+        <output id="galibiyetSayi" for="galibiyet">0 wins</output>
+        <span class="asama-adi" id="asamaAdi">Patched Tee</span>
+        <label class="gizli" for="galibiyet">Number of wins</label>
         <input class="kaydirac" id="galibiyet" type="range" min="0" max="200" step="1" value="0">
         <div class="duraklar" aria-hidden="true"><span>0</span><span>10</span><span>30</span><span>200</span></div>
       </div>
@@ -312,29 +312,29 @@ footer a { color: var(--sari); }
   <section class="bolum ebeveyn" id="ebeveyn">
     <svg class="dalga" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true"><path d="M0 14 Q 50 0 100 14 T 200 14 T 300 14 T 400 14 T 500 14 T 600 14 T 700 14 T 800 14 T 900 14 T 1000 14 T 1100 14 T 1200 14 V28 H0z" fill="#FBD7B2" stroke="#362234" stroke-width="4"/></svg>
     <div class="ic">
-      <p class="ust-yazi">Ebeveyn Köşesi</p>
-      <h2>Çocuğunuz oynarken içiniz rahat olsun</h2>
-      <p class="giris">Lulo Smaç! çocuklar için yapıldı. Kurallarımız kumda yazılı değil, tabelaya çakılı.</p>
+      <p class="ust-yazi">Parents' Corner</p>
+      <h2>Peace of mind while your child plays</h2>
+      <p class="giris">Lulo Smaç! is made for kids. Our rules aren't written in the sand; they're nailed to the signpost.</p>
       <div class="tabelalar">
-        <div class="tabela"><h3>Reklam yok</h3><p>Oyunda hiç reklam yok; sohbet ve bildirim de yok.</p></div>
-        <div class="tabela"><h3>Veri toplanmaz</h3><p>Hesap, kayıt, konum, kamera ve mikrofon yok.</p></div>
-        <div class="tabela"><h3>İnternetsiz oynanır</h3><p>Oyun internete bağlanmaz; ilerleme cihazda kalır.</p></div>
-        <div class="tabela"><h3>Ebeveyn kapısı</h3><p>Satın almalar, çocukların geçemeyeceği bir kapının arkasında.</p></div>
+        <div class="tabela"><h3>No ads</h3><p>No ads in the game at all, and no chat or notifications either.</p></div>
+        <div class="tabela"><h3>No data collected</h3><p>No account, no sign-up, no location, camera or microphone.</p></div>
+        <div class="tabela"><h3>Plays offline</h3><p>The game never connects to the internet; progress stays on the device.</p></div>
+        <div class="tabela"><h3>Parental gate</h3><p>Purchases sit behind a gate that kids can't get through.</p></div>
       </div>
       <div class="morso">
-        <img src="img/morso.webp" alt="Koç Morso" width="512" height="512" loading="lazy">
-        <div class="balon"><p>"Benim sahamda kural basit: eğlence bol, reklam sıfır. Bir sorunuz olursa düdüğü çalın, yani bize yazın!"</p></div>
+        <img src="../img/morso.webp" alt="Coach Morso" width="512" height="512" loading="lazy">
+        <div class="balon"><p>"On my court the rule is simple: lots of fun, zero ads. Got a question? Blow the whistle, I mean, write to us!"</p></div>
       </div>
       <div class="iletisim">
         <span class="eposta" id="eposta">support@lulosmac.com</span>
-        <button class="hap" id="kopyala" type="button">Adresi kopyala</button>
-        <a class="hap" href="destek/">Destek</a>
-        <a class="hap" href="gizlilik/">Gizlilik Politikası</a>
+        <button class="hap" id="kopyala" type="button">Copy address</button>
+        <a class="hap" href="support/">Support</a>
+        <a class="hap" href="privacy/">Privacy Policy</a>
       </div>
     </div>
   </section>
 
-  <footer><p>© 2026 Lulo Smaç! · EIGHT UP</p><nav aria-label="Destek ve gizlilik"><a href="destek/">Destek</a><a href="gizlilik/">Gizlilik</a><a href="en/support/" lang="en">Support</a><a href="en/privacy/" lang="en">Privacy</a><a href="en/" lang="en" hreflang="en">English</a></nav></footer>
+  <footer><p>© 2026 Lulo Smaç! · EIGHT UP</p><nav aria-label="Support and privacy"><a href="support/">Support</a><a href="privacy/">Privacy</a><a href="../" lang="tr" hreflang="tr">Türkçe</a></nav></footer>
 </main>
 
 <script>
@@ -376,9 +376,9 @@ const Ses = {
       this.ana = this.ctx.createGain();
       this.ana.gain.value = 0.9;
       this.ana.connect(this.ctx.destination);
-      this.dosyalar.forEach((ad) => this.yukle(ad, `ses/${ad}.mp3`));
-      this.dongu('ortam', 'ses/ortam_plaj.mp3', 0.5, 13.5, 0.35);
-      this.dongu('muzik', 'ses/muzik_plaj.mp3', 4.853, 66.7896, 0.28);
+      this.dosyalar.forEach((ad) => this.yukle(ad, `../ses/${ad}.mp3`));
+      this.dongu('ortam', '../ses/ortam_plaj.mp3', 0.5, 13.5, 0.35);
+      this.dongu('muzik', '../ses/muzik_plaj.mp3', 4.853, 66.7896, 0.28);
     }
     if (this.ctx.state === 'suspended') await this.ctx.resume();
     this.acik = true;
@@ -426,8 +426,8 @@ const sesDugme = document.getElementById('ses');
 const sesIpucu = document.getElementById('sesIpucu');
 sesDugme.addEventListener('click', async (e) => {
   e.stopPropagation();
-  if (Ses.acik) { Ses.kapat(); sesDugme.setAttribute('aria-pressed', 'false'); sesDugme.setAttribute('aria-label', 'Sesi aç'); }
-  else { await Ses.ac(); sesDugme.setAttribute('aria-pressed', 'true'); sesDugme.setAttribute('aria-label', 'Sesi kapat'); Ses.cal('duduk', { kazanc: 0.5 }); }
+  if (Ses.acik) { Ses.kapat(); sesDugme.setAttribute('aria-pressed', 'false'); sesDugme.setAttribute('aria-label', 'Turn sound on'); }
+  else { await Ses.ac(); sesDugme.setAttribute('aria-pressed', 'true'); sesDugme.setAttribute('aria-label', 'Turn sound off'); Ses.cal('duduk', { kazanc: 0.5 }); }
   sesIpucu.style.opacity = '0';
 });
 setTimeout(() => { sesIpucu.style.opacity = '0'; }, 7000);
@@ -438,8 +438,8 @@ document.addEventListener('visibilitychange', () => {
 
 // ------------------------------------------------------------------ resimler
 const RES = {};
-const resimler = { plaj: 'img/plaj.webp', top: 'img/top.webp', bumi: 'img/bumi.webp', gak: 'img/gak.webp', guk: 'img/guk.webp' };
-['hazir', 'kosu', 'manset', 'ziplama', 'smac', 'sevinc', 'uzgun', 'pas'].forEach((p) => { resimler['lulo_' + p] = `img/lulo_${p}.webp`; });
+const resimler = { plaj: '../img/plaj.webp', top: '../img/top.webp', bumi: '../img/bumi.webp', gak: '../img/gak.webp', guk: '../img/guk.webp' };
+['hazir', 'kosu', 'manset', 'ziplama', 'smac', 'sevinc', 'uzgun', 'pas'].forEach((p) => { resimler['lulo_' + p] = `../img/lulo_${p}.webp`; });
 function resimYukle(ad, yol) {
   return new Promise((ok) => {
     const im = new Image();
@@ -614,7 +614,7 @@ function servisVur() {
   firlat(iniX, 74, T, oyun.t);
   oyun.halka = { x: iniX, basla: oyun.t, tc: oyun.t + T, dokundu: null, erken: false, ai: ara(-0.04, 0.05) };
   lulo.hedef = iniX;
-  if (!oyun.insan) ipucu('Sıra sende! Halka daralınca <b>DOKUN</b>');
+  if (!oyun.insan) ipucu('Your turn! <b>TAP</b> when the ring closes');
 }
 function karsila(kalite) {
   const h = oyun.halka;
@@ -626,13 +626,13 @@ function karsila(kalite) {
   Ses.cal('vurus_2');
   if (kalite === 'mukemmel') {
     Ses.cal('mukemmel', { kazanc: 0.7, gecikme: 0.02 });
-    yaz('MÜKEMMEL!', top.x, top.z + 70, { renk: R.sari, boyut: 50 });
+    yaz('PERFECT!', top.x, top.z + 70, { renk: R.sari, boyut: 50 });
     yildizlar(top.x, top.z, 12);
   } else {
-    yaz('İYİ!', top.x, top.z + 60, { renk: R.beyaz, boyut: 40, omur: 0.8 });
+    yaz('GOOD!', top.x, top.z + 60, { renk: R.beyaz, boyut: 40, omur: 0.8 });
   }
   firlat(bumi.x + 6, 118, kalite === 'mukemmel' ? 0.95 : 1.05, oyun.t);
-  if (oyun.insan && kalite === 'mukemmel' && !oyun.yildizIpucu) ipucu('Lulo sıçrayınca <b>yıldıza DOKUN</b>!');
+  if (oyun.insan && kalite === 'mukemmel' && !oyun.yildizIpucu) ipucu('When Lulo jumps, <b>TAP the star</b>!');
 }
 function pasVer() {
   faz('pas');
@@ -662,7 +662,7 @@ function smacVur(mukemmel) {
   Ses.cal(mukemmel ? 'smac_2' : 'smac_1', { kazanc: 0.9 });
   if (mukemmel) {
     Ses.cal('kukreme', { kazanc: 0.8, gecikme: 0.03 });
-    yaz('KÜKREYEN SMAÇ!', s.x + 20, s.z + 90, { renk: R.sari, boyut: 44, omur: 1.2 });
+    yaz('ROAR SPIKE!', s.x + 20, s.z + 90, { renk: R.sari, boyut: 44, omur: 1.2 });
     yildizlar(top.x, top.z, 16);
     kam.sars = 0.35;
   }
@@ -683,7 +683,7 @@ function sayi(bizim) {
     guk.titre = 0.6;
     konfeti(top.altin ? 70 : 40);
     logo.classList.remove('zipla'); void logo.offsetWidth; logo.classList.add('zipla');
-    if (oyun.insan) ipucu(top.altin ? '<b>Kükreyen smaç!</b> Bir tane daha?' : 'Sayı bizim! Bir tane daha?');
+    if (oyun.insan) ipucu(top.altin ? '<b>Roar Spike!</b> One more?' : 'Our point! One more?');
   } else {
     oyun.onlar++;
     skorGoster(skorOnlar, oyun.onlar);
@@ -691,14 +691,14 @@ function sayi(bizim) {
     Ses.cal('karga_gak', { kazanc: 0.7, gecikme: 0.25 });
     lulo.poz('uzgun', 1.3);
     gak.zipla(380); guk.zipla(300);
-    if (oyun.insan) ipucu('Olsun! Halka oturunca <b>DOKUN</b>.');
+    if (oyun.insan) ipucu('No worries! <b>TAP</b> when the ring closes.');
   }
   const bitti = oyun.biz >= 7 || oyun.onlar >= 7;
   if (bitti) {
     oyun.sonuc = oyun.biz >= 7 ? 'kazandik' : 'kaybettik';
     setTimeout(() => {
-      if (oyun.sonuc === 'kazandik') { yaz('MAÇI KAZANDIN!', 640, 300, { boyut: 60, omur: 2.6 }); konfeti(90); Ses.cal('tezahurat', { kazanc: 0.6, perde: 0 }); ipucu('Maç senin! Gerçek maçlar oyunda.'); }
-      else { yaz('KARGALAR KAZANDI', 640, 300, { renk: R.beyaz, boyut: 50, omur: 2.4 }); ipucu('Gak gak! Rövanş için <b>DOKUN</b>.'); }
+      if (oyun.sonuc === 'kazandik') { yaz('YOU WON THE MATCH!', 640, 300, { boyut: 60, omur: 2.6 }); konfeti(90); Ses.cal('tezahurat', { kazanc: 0.6, perde: 0 }); ipucu('The match is yours! Real matches are in the game.'); }
+      else { yaz('THE CROWS WON', 640, 300, { renk: R.beyaz, boyut: 50, omur: 2.4 }); ipucu('Caw caw! <b>TAP</b> for a rematch.'); }
     }, 500);
   }
 }
@@ -716,7 +716,7 @@ function dokun(kaynak) {
   if (oyun.faz === 'servis' && oyun.halka && !oyun.halka.dokundu) {
     const d = t - oyun.halka.tc;
     if (d < -PENCERE.iyi) {
-      ipucu('Bekle, halka daralsın!');
+      ipucu('Wait for the ring to close!');
       yaz('ERKEN', top.x, top.z + 40, { renk: R.beyaz, boyut: 30, omur: 0.6 });
     } else if (d <= PENCERE.gec) karsila(Math.abs(d) <= PENCERE.mukemmel ? 'mukemmel' : 'iyi');
     return;
@@ -727,7 +727,7 @@ function dokun(kaynak) {
     else if (d < 0) oyun.smac.dokundu = 'erken';
     return;
   }
-  if (kaynak !== 'basma') ipucu('Halka iç halkaya oturunca <b>DOKUN</b>!');
+  if (kaynak !== 'basma') ipucu('<b>TAP</b> when the rings line up!');
 }
 let basma = null;
 saha.addEventListener('pointerdown', (e) => {
@@ -767,7 +767,7 @@ function akis(dt) {
       topKonum(t);
       const h = oyun.halka;
       if (!oyun.insan && !h.dokundu && t >= h.tc + h.ai) karsila(Math.random() < 0.45 ? 'mukemmel' : 'iyi');
-      if (!h.dokundu && t > h.tc + PENCERE.gec) { faz('kacti'); h.dokundu = 'kacti'; if (oyun.insan) yaz('KAÇTI!', top.x, 150, { renk: R.beyaz, boyut: 40, omur: 0.9 }); }
+      if (!h.dokundu && t > h.tc + PENCERE.gec) { faz('kacti'); h.dokundu = 'kacti'; if (oyun.insan) yaz('MISSED!', top.x, 150, { renk: R.beyaz, boyut: 40, omur: 0.9 }); }
       break;
     }
     case 'karsilandi':
@@ -1025,18 +1025,18 @@ if (location.hash === '#deneme') window.__lulo = { oyun, top, dokun };
 
 // ------------------------------------------------------------------ soyunma odası
 const KADRO = [
-  { id: 'lulo', ad: 'Lulo', no: 10, tur: 'Aslan · Smaççı, kaptan', huy: 'Heyecanlanınca yelesi kabarır, gözlerini kapatır.', sup: 'Kükreme Smaçı: yelesi kabarır, top kükreyerek iner.' },
-  { id: 'bumi', ad: 'Bumi', no: 5, tur: 'Ayı · Blokçu', huy: 'Bal kokusu gelince burnunun peşine takılır.', sup: 'Ayı Kucağı: filenin yarısını kapatan dev blok.' },
-  { id: 'runi', ad: 'Runi', no: 2, tur: 'Tavşan · Smaççı', huy: 'Top yüzüne gelince gözlerini sımsıkı kapatır.', sup: 'Havuç Roketi: arka çizgiden göğe sıçrayıp smaç.' },
-  { id: 'tavi', ad: 'Tavi', no: 12, tur: 'Kaplumbağa · Savunmacı', huy: 'En yavaş koşan o; ayakkabı bonusunu 1,5 kat alır.', sup: 'Kabuk Sekmesi: kabuğuna girer, top geri seker.' },
-  { id: 'kumo', ad: 'Kumo', no: 9, tur: 'Koala · Savunmacı', huy: 'Uzun rallide ayakta uyuyakalır, dokunup uyandırırsın.', sup: 'Bulut Uykusu: ayakta uyur, top yumuşacık seker.' },
-  { id: 'feni', ad: 'Feni', no: 7, tur: 'Tilki · Libero', huy: 'Kurtarıştan sonra poz verir, sonraki topu kaçırır.', sup: 'Şimşek Plonjon: topun düştüğü yere atılır.' },
-  { id: 'pomi', ad: 'Pomi', no: 6, tur: 'Panda · Blokçu', huy: 'Kıpırdamaya üşenir, bambu atıştırır.', sup: 'Küp Duvar: küpe dönüşür, o blokta top geçmez.' },
-  { id: 'sipi', ad: 'Sipi', no: 11, tur: 'Kuzu · Pasör', huy: 'Yünü gözüne düşer; kumda elektriklenir.', sup: 'Pamuk Yastık: top yününe gömülüp kusursuz pas olur.' },
-  { id: 'cado', ad: 'Cado', no: 3, tur: 'Kapibara · Pasör', huy: 'Top gelmiyorsa kuma uzanıp güneşlenir.', sup: 'Zen Pas: zaman yavaşlar.' },
-  { id: 'olo', ad: 'Olo', no: 4, tur: 'Su samuru · Libero', huy: 'Şans taşını düşürüp arar.', sup: 'Göbek Kayması: sahanın ucundan ucuna kayar.' },
-  { id: 'efo', ad: 'Efo', no: 1, tur: 'Bebek fil · Joker', huy: 'Skoru unutur, yanlış anda sevinir.', sup: 'Fıskiye Servisi: hortumdan su, top dans eder.' },
-  { id: 'mimo', ad: 'Mimo', no: 8, tur: 'Maymun · Joker', huy: 'Yerinde duramaz, hep erken zıplar.', sup: 'Spiral Salto: dönerek vurur, yönü okunmaz.' },
+  { id: 'lulo', ad: 'Lulo', no: 10, tur: 'Lion · Spiker, captain', huy: 'Gets so excited that the mane puffs up and both eyes close.', sup: 'Roar Spike: the mane puffs up and the ball comes down roaring.' },
+  { id: 'bumi', ad: 'Bumi', no: 5, tur: 'Bear · Blocker', huy: 'One whiff of honey and off goes that nose.', sup: 'Bear Hug: a giant block that covers half the net.' },
+  { id: 'runi', ad: 'Runi', no: 2, tur: 'Rabbit · Spiker', huy: 'Squeezes both eyes shut when the ball flies at the face.', sup: 'Carrot Rocket: leaps sky-high from the back line for a spike.' },
+  { id: 'tavi', ad: 'Tavi', no: 12, tur: 'Turtle · Defender', huy: 'The slowest runner, so shoe bonuses count 1.5 times.', sup: 'Shell Bounce: hides in the shell and the ball bounces back.' },
+  { id: 'kumo', ad: 'Kumo', no: 9, tur: 'Koala · Defender', huy: 'Falls asleep standing up in long rallies; tap to wake up.', sup: 'Cloud Nap: sleeps standing up and the ball bounces off softly.' },
+  { id: 'feni', ad: 'Feni', no: 7, tur: 'Fox · Libero', huy: 'Strikes a pose after a save and misses the next ball.', sup: 'Lightning Dive: flies to the spot where the ball will land.' },
+  { id: 'pomi', ad: 'Pomi', no: 6, tur: 'Panda · Blocker', huy: 'Too lazy to move, so snacks on bamboo instead.', sup: 'Cube Wall: turns into a cube and nothing gets past that block.' },
+  { id: 'sipi', ad: 'Sipi', no: 11, tur: 'Lamb · Setter', huy: 'Wool flops over the eyes and gets staticky in the sand.', sup: 'Cotton Pillow: the ball sinks into the wool and pops out as a perfect set.' },
+  { id: 'cado', ad: 'Cado', no: 3, tur: 'Capybara · Setter', huy: 'If the ball is not coming, lies down in the sand to sunbathe.', sup: 'Zen Set: time slows down.' },
+  { id: 'olo', ad: 'Olo', no: 4, tur: 'Otter · Libero', huy: 'Keeps dropping a lucky stone and hunting for it.', sup: 'Belly Slide: slides from one end of the court to the other.' },
+  { id: 'efo', ad: 'Efo', no: 1, tur: 'Baby elephant · Wildcard', huy: 'Forgets the score and cheers at the wrong moment.', sup: 'Fountain Serve: water from the trunk makes the ball dance.' },
+  { id: 'mimo', ad: 'Mimo', no: 8, tur: 'Monkey · Wildcard', huy: 'Cannot stand still and always jumps too early.', sup: 'Spiral Flip: spins while hitting, so nobody can read the direction.' },
 ];
 const sira = document.getElementById('dolaplar');
 const kart = document.getElementById('kart');
@@ -1045,8 +1045,8 @@ KADRO.forEach((k) => {
   b.className = 'dolap';
   b.type = 'button';
   b.setAttribute('aria-expanded', 'false');
-  b.setAttribute('aria-label', `${k.no} numaralı dolap: ${k.ad}`);
-  b.innerHTML = `<div class="govde"><span class="askilik"></span><img class="kisi" src="img/k_${k.id}.webp" alt="" width="512" height="512" loading="lazy">${k.id === 'kumo' ? '<span class="zzz" aria-hidden="true">Z</span>' : ''}</div>
+  b.setAttribute('aria-label', `Locker ${k.no}: ${k.ad}`);
+  b.innerHTML = `<div class="govde"><span class="askilik"></span><img class="kisi" src="../img/k_${k.id}.webp" alt="" width="512" height="512" loading="lazy">${k.id === 'kumo' ? '<span class="zzz" aria-hidden="true">Z</span>' : ''}</div>
     <div class="kapak"><div class="yariklar"><span class="yarik"></span><span class="yarik"></span><span class="yarik"></span></div><span class="no">${k.no}</span><span class="kulp"></span><span class="bant">${k.ad}</span></div>`;
   b.addEventListener('click', () => {
     const acik = b.getAttribute('aria-expanded') === 'true';
@@ -1072,10 +1072,10 @@ KADRO.forEach((k) => {
 
 // ------------------------------------------------------------------ forma yolu
 const ASAMALAR = [
-  { min: 0, ad: 'Yamalı Tişört', resim: 'img/f_yamali.webp' },
-  { min: 10, ad: 'Okul Forması', resim: 'img/f_okul.webp' },
-  { min: 30, ad: 'Lig Forması', resim: 'img/f_lig.webp' },
-  { min: 200, ad: 'Efsane Forma', resim: 'img/f_efsane.webp' },
+  { min: 0, ad: 'Patched Tee', resim: '../img/f_yamali.webp' },
+  { min: 10, ad: 'School Jersey', resim: '../img/f_okul.webp' },
+  { min: 30, ad: 'League Jersey', resim: '../img/f_lig.webp' },
+  { min: 200, ad: 'Legend Jersey', resim: '../img/f_efsane.webp' },
 ];
 const kay = document.getElementById('galibiyet');
 const fRes = document.getElementById('formaResim');
@@ -1091,13 +1091,13 @@ function kaydirToGalibiyet(v) {
 }
 kay.addEventListener('input', () => {
   const g = kaydirToGalibiyet(+kay.value);
-  fSay.textContent = `${g} galibiyet`;
+  fSay.textContent = `${g} ${g === 1 ? 'win' : 'wins'}`;
   let a = 0;
   ASAMALAR.forEach((s, i) => { if (g >= s.min) a = i; });
   if (a !== sonAsama) {
     sonAsama = a;
     fRes.src = ASAMALAR[a].resim;
-    fRes.alt = `Lulo, ${ASAMALAR[a].ad} ile`;
+    fRes.alt = `Lulo in the ${ASAMALAR[a].ad}`;
     fAd.textContent = ASAMALAR[a].ad;
     fRes.classList.remove('pop'); void fRes.offsetWidth; fRes.classList.add('pop');
     Ses.cal(a === 3 ? 'mukemmel' : 'kutu', { kazanc: 0.5 });
@@ -1109,12 +1109,12 @@ ASAMALAR.forEach((s) => { const im = new Image(); im.src = s.resim; });
 document.getElementById('kopyala').addEventListener('click', async (e) => {
   const b = e.currentTarget;
   const metin = 'support@lulosmac.com';
-  try { await navigator.clipboard.writeText(metin); b.textContent = 'Kopyalandı'; }
+  try { await navigator.clipboard.writeText(metin); b.textContent = 'Copied'; }
   catch (err) {
     const r = document.createRange(); r.selectNodeContents(document.getElementById('eposta'));
-    const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Seçildi, kopyalayabilirsin';
+    const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected, you can copy it';
   }
-  setTimeout(() => { b.textContent = 'Adresi kopyala'; }, 2200);
+  setTimeout(() => { b.textContent = 'Copy address'; }, 2200);
 });
 })();
 </script>
