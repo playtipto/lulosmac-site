@@ -23,7 +23,7 @@ TR_EKLER = [
      '<span class="sag-haplar"><a class="hap ebeveyn-hap" href="en/" lang="en" hreflang="en" aria-label="English">EN</a>'
      '<a class="hap ebeveyn-hap" href="#ebeveyn">Ebeveynler</a></span>'),
     ('.ebeveyn-hap { font-size: 15px; padding: .55em .9em; }',
-     '.ebeveyn-hap { font-size: 15px; padding: .55em .9em; }\n.sag-haplar { display: flex; gap: 6px; }\n@media (max-width: 480px) { .ust { align-items: flex-start; } .ust .skor { margin-top: 5px; } .sag-haplar { flex-direction: column-reverse; align-items: flex-end; margin-top: 5px; } }'),
+     '.ebeveyn-hap { font-size: 15px; padding: .55em .9em; }\n.sag-haplar { display: flex; gap: 6px; }\n@media (max-width: 480px) { .ust { align-items: flex-start; } .ust .skor { margin-top: 5px; } .sag-haplar { flex-direction: column-reverse; align-items: flex-end; margin-top: 5px; } }\n@media (max-width: 400px) { .ust { gap: 6px; } .ses { width: 44px; height: 44px; } .skor span { padding: 4px 7px; font-size: 13px; } .skor b { font-size: 20px; padding: 2px 6px; } .ebeveyn-hap { font-size: 14px; padding: .5em .75em; } }'),
     ('<a href="en/privacy/" lang="en">Privacy</a></nav></footer>',
      '<a href="en/privacy/" lang="en">Privacy</a><a href="en/" lang="en" hreflang="en">English</a></nav></footer>'),
 ]
