@@ -17,7 +17,7 @@ ALAN = 'https://lulosmac.com'
 SOSYAL = '/tmp/claude-0/-home-claude-lulo-smac/7573ba6b-6e4c-59bd-94ca-0ba93a9d7ea6/scratchpad/sosyal/teslim'
 e = html.escape
 
-ACIKLAMA = 'Lulo Spor Okulu kapanmak üzere! 12 şapşal hayvanla tek parmakla plaj voleybolu. Reklam yok, veri toplanmaz, internetsiz oynanır.'
+ACIKLAMA = 'Lulo Spor Okulu yarışa giriyor! 12 şapşal hayvanla tek parmakla plaj voleybolu. Hedef: Büyük Kupa. Veri toplanmaz, internetsiz oynanır.'
 
 # Sayfa adresleri ve dil eşleri
 SAYFA = {
