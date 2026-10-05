@@ -38,6 +38,7 @@ test('template mail: game, family promises, team, question, links and company', 
   // media: "siz" from the start, their own idea list, no match-video idea
   const m = L.adayOlustur({ handle: 'haber.sitesi', ad: 'Haber Sitesi', email: 'editor@x.co', tur: 'medya', ulke: 'TR' }, 't', { hitap: 'sen' });
   assert.equal(m.hitap, 'siz');
+  assert.equal(L.mailUret(Object.assign({}, m, { ad: 'Haber Sitesi (Ekip)', hitapAdi: 'Haber Sitesi ekibi' }), {}).konu, 'Lulo Smaç! × Haber Sitesi: işbirliği daveti');
   assert.ok(m.mail.govde.includes('okurlarınıza bir haber ya da incelemeyle') && m.mail.govde.includes('Ekibimizle kısa bir röportaj') && !m.mail.govde.includes('moduyla eğlenceli bir maç videosu'));
   assert.ok(m.mail.govde.includes('Saygılarımızla,'));
   // fit score: family first, Türkiye first

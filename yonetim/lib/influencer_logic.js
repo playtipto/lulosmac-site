@@ -373,6 +373,7 @@ export function mailUret(d, a) {
   const medya = d.tur === 'medya';
   const siz = dil === 'tr' && d.hitap === 'siz';
   const ad = hitapAdi(d);
+  const konuAd = (medya && temizAd(d.ad)) || ad;   // yayın kuruluşunda konu satırı kuruluşun adıyla
   const gon = String(a.gonderenAd || '').trim();
   const app = String(a.appStore || '').trim();
   const fk = fikirler(dil, siz, a, medya);
@@ -398,7 +399,7 @@ export function mailUret(d, a) {
       ? 'Oyuna ' + SITE.tr + ' adresinden göz ' + (siz ? 'atabilir, Lulo Smaç!\'ı App Store\'dan ücretsiz indirebilirsiniz: ' : 'atabilir, Lulo Smaç!\'ı App Store\'dan ücretsiz indirebilirsin: ') + app
       : 'Oyuna ' + SITE.tr + ' adresinden göz ' + (siz ? 'atabilirsiniz' : 'atabilirsin') + (a.yayin === 'yakinda' ? '. Lulo Smaç! yakında App Store\'da.' : '. Lulo Smaç! bu hafta App Store\'da yayında olacak.');
     const kapanis = siz ? (gon ? 'Saygılarımla,' : 'Saygılarımızla,') : 'Sevgiler,';
-    konu = 'Lulo Smaç! × ' + ad + ': ' + (siz ? 'işbirliği daveti' : 'bir işbirliği fikri');
+    konu = 'Lulo Smaç! × ' + konuAd + ': ' + (siz ? 'işbirliği daveti' : 'bir işbirliği fikri');
     govde = ['Merhaba ' + ad + ',', k, giris + ' ' + oyun + ' ' + icerik, guven, ekip, soru, baska, link, kapanis + '\n' + imza('tr', a)].join('\n\n');
     dm = 'Merhaba ' + ad + ', biz Lulo Smaç! ekibiyiz. Lulo Smaç!, Türkiye\'den küçük bir ekibin geliştirdiği, çocuklar için reklamsız ve internetsiz bir plaj voleybolu oyunu. '
       + kisalt(k, 'tr') + ' '
@@ -418,7 +419,7 @@ export function mailUret(d, a) {
     const link = app
       ? 'You can take a look at ' + SITE.en + ', and Lulo Smaç! is free on the App Store: ' + app
       : 'You can take a look at ' + SITE.en + (a.yayin === 'yakinda' ? '. Lulo Smaç! is coming soon to the App Store.' : '. Lulo Smaç! launches on the App Store this week.');
-    konu = 'Lulo Smaç! × ' + ad + ': a collaboration idea';
+    konu = 'Lulo Smaç! × ' + konuAd + ': a collaboration idea';
     govde = ['Hi ' + ad + ',', k, giris + ' ' + oyun, guven, ekip, soru, baska, link, 'Best,\n' + imza('en', a)].join('\n\n');
     dm = 'Hi ' + ad + ', we\'re the Lulo Smaç! team. Lulo Smaç! is a beach volleyball game for kids with no ads and no internet needed, made by a small team in Türkiye. '
       + kisalt(k, 'en') + ' We\'d love to work with you. What kind of collaboration would suit your content? Happy to continue by email: ' + mail;
