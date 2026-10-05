@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Yönetim · Lulo Smaç!</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="{{CSS}}">
+</head>
+<body>
+<header class="bar"><div class="wrap">
+<a class="brand" href="/admin/" aria-label="Lulo Smaç! yönetim paneli">{{LOGO}}<b>Yönetim</b></a>
+<span class="sp"></span>
+<span class="who" id="who" hidden></span>
+<button class="btn small" type="button" id="logout" hidden>Çıkış</button>
+</div></header>
+
+<main>
+<div class="wrap">
+
+<section id="v-wait" class="gate"><p class="center muted">Yükleniyor…</p></section>
+
+<section id="v-setup" class="gate" hidden>
+<div class="card">
+<h1>Kurulum gerekli</h1>
+<p>Panelin çalışması için Cloudflare'de şu gizli değerler eksik:</p>
+<ul id="missing" class="mono"></ul>
+<p class="note">Değerleri kurulum sayfası senin tarayıcında üretir; ekledikten sonra Cloudflare'de son yayını yeniden başlat (Retry deployment).</p>
+<p class="center"><a class="btn main" href="/admin/setup/">Kurulum sayfasını aç</a></p>
+</div>
+</section>
+
+<section id="v-login" class="gate" hidden>
+<div class="card">
+<h1>Giriş</h1>
+<form id="loginForm" autocomplete="on" novalidate>
+<input class="sr" type="text" name="username" autocomplete="username" value="admin" tabindex="-1" aria-hidden="true" readonly>
+<label class="f" for="pw">Şifre</label>
+<input class="in mono" id="pw" name="password" type="password" autocomplete="current-password" autocapitalize="characters" spellcheck="false" required>
+<div class="row mt"><button class="btn main" type="submit" id="loginBtn">Giriş yap</button></div>
+<p class="msg err" id="loginMsg" role="alert"></p>
+</form>
+<p class="note">Şifreyi kurulum sayfası üretti. Unuttuysan kurulum sayfasında yeni şifre üretip Cloudflare'deki <code>ADMIN_PASSWORD_HASH</code> değerini değiştir.</p>
+</div>
+</section>
+
+<section id="v-app" hidden>
+<div class="beach" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<div class="card">
+<div class="entry">
+<div class="t">
+<h2>Influencer</h2>
+<p class="muted">Aileler, eğitimciler, içerik üreticileri ve çocuk-oyun medyası: adaylar, kişiye özel mailler, Gmail'den gönderim ve cevaplar tek yerde. Hiçbir mail sen onaylamadan gitmez.</p>
+</div>
+<a class="btn main" href="/admin/influencer/">Influencer sayfasını aç</a>
+</div>
+</div>
+
+<div class="card">
+<h2>Durum</h2>
+<dl class="kv" id="statusList"></dl>
+<div class="row mt"><button class="btn small" type="button" id="recheck">Yeniden kontrol et</button><a class="btn small" href="/admin/setup/">Kurulum sayfası</a></div>
+</div>
+</section>
+
+</div>
+</main>
+
+<script src="{{JS}}" defer></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Kurulum · Lulo Smaç! yönetim</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="{{CSS}}">
+</head>
+<body>
+<header class="bar"><div class="wrap">
+<a class="brand" href="/admin/" aria-label="Lulo Smaç! yönetim paneli">{{LOGO}}<b>Kurulum</b></a>
+</div></header>
+<main>
+<div class="wrap">
+
+<div class="card">
+<h1>Yönetim paneli kurulumu</h1>
+<p>Bu sayfa panelin gizli değerlerini <b>senin tarayıcında</b> üretir ve hiçbir yere göndermez. Değerleri Cloudflare'e sen yapıştırırsın; Cloudflare onları şifreli saklar ve kimseye geri göstermez.</p>
+<div class="row mt"><button class="btn main" type="button" id="gen">Değerleri üret</button></div>
+<p class="msg err" id="genMsg" role="alert"></p>
+</div>
+
+<div id="out" hidden>
+
+<div class="card">
+<h2>1. Giriş şifren</h2>
+<p class="pw" id="pw"></p>
+<div class="row"><button class="btn small" type="button" data-copy="pw">Şifreyi kopyala</button></div>
+<p class="note">Şifre yöneticine kaydet (kullanıcı adı: <b>admin</b>, site: <b>lulosmac-yonetim.pages.dev</b>). Bu sayfa kapanınca bir daha gösterilmez. Büyük-küçük harf ve tireler önemli değil.</p>
+</div>
+
+<div class="card">
+<h2>2. Cloudflare'e gizli değer olarak ekle</h2>
+<ol class="steps">
+<li><a href="https://dash.cloudflare.com/" target="_blank" rel="noopener noreferrer">dash.cloudflare.com</a> → <b>Workers &amp; Pages</b> → <b>lulosmac-yonetim</b> projesi → <b>Settings</b> → <b>Variables and Secrets</b>.</li>
+<li><b>Production</b> ortamında <b>+ Add</b> → Type: <b>Secret</b> → aşağıdaki adı ve değeri yapıştır → <b>Save</b>. Her değer için tekrarla.</li>
+</ol>
+<div id="secrets"></div>
+</div>
+
+<div class="card">
+<h2>3. Yayını yenile</h2>
+<p>Cloudflare'de aynı projede <b>Deployments</b> → en üstteki Production yayını → <b>⋯</b> → <b>Retry deployment</b>. Yeni değerler ancak yeni yayında devreye girer.</p>
+<p>Sonra <a href="/admin/">yönetim paneline</a> şifrenle giriş yap.</p>
+</div>
+
+</div>
+</div>
+</main>
+<script src="{{JS}}" defer></script>
+</body>
+</html>

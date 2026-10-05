@@ -1,0 +1,12 @@
+# lulo-otomasyon: calls https://lulosmac-yonetim.pages.dev/cron/influencer every 10 minutes (lib/otomasyon.js decides what happens).
+# Deployed by Cloudflare Workers Builds (root directory: yonetim/workers/otomasyon, deploy command: npx wrangler deploy).
+# The Secret INF_CRON_KEY is set in the dashboard (Settings → Variables and Secrets); deploys keep it.
+name = "lulo-otomasyon"
+main = "index.js"
+compatibility_date = "2026-09-01"
+
+[triggers]
+crons = ["*/10 * * * *"]
+
+[observability]
+enabled = true

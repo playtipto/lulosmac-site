@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Influencer · Lulo Smaç! yönetim</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="/admin/assets/influencer.6db020fddd.css">
+</head>
+<body>
+<header class="adminbar"><div class="wrap">
+<a class="brand" href="/admin/" aria-label="Lulo Smaç! yönetim paneli"><img src="/assets/img/logo.webp" alt="" width="67" height="40"><b>Yönetim</b></a>
+<nav class="barnav" aria-label="Yönetim bölümleri"><a href="/admin/">Durum</a><a href="/admin/influencer/" aria-current="page">Influencer</a></nav>
+<span class="sp"></span>
+<span class="who" id="who" hidden></span>
+<button class="btn btn-s btn-quiet" type="button" id="logout" hidden>Çıkış</button>
+</div></header>
+
+<div class="app" lang="tr">
+
+<section id="v-wait" class="gate"><p class="center muted">Yükleniyor…</p></section>
+
+<section id="v-login" class="gate" hidden>
+  <div class="gate-card">
+    <h1>Giriş</h1>
+    <form id="loginForm" autocomplete="on" novalidate>
+      <input class="sr" type="text" name="username" autocomplete="username" value="admin" tabindex="-1" aria-hidden="true" readonly>
+      <label class="f" for="pw">Yönetim paneli şifresi</label>
+      <input id="pw" name="password" type="password" autocomplete="current-password" autocapitalize="characters" spellcheck="false" required>
+      <div class="actions"><button class="btn btn-primary" type="submit" id="loginBtn">Giriş yap</button></div>
+      <p class="msg err" id="loginMsg" role="alert"></p>
+    </form>
+    <p class="not">Yönetim panelinin şifresiyle aynı. Oturum 8 saat açık kalır.</p>
+  </div>
+</section>
+
+<section id="v-setup" class="gate" hidden>
+  <div class="gate-card">
+    <h1>Kurulum gerekli</h1>
+    <p>Influencer bölümü kişileri Cloudflare'de ayrı bir veritabanında tutar. Bir kez bağlaman yeter:</p>
+    <ol class="steps">
+      <li>Cloudflare → <b>Workers &amp; Pages</b> → <b>D1 SQL Database</b> → <b>Create</b>: adı <code>lulo-influencer</code>.</li>
+      <li><b>lulosmac-yonetim</b> Pages projesi → <b>Settings</b> → <b>Bindings</b> → <b>Add</b> → <b>D1 database</b>: değişken adı <code>INFLUENCER_DB</code>, veritabanı <code>lulo-influencer</code>.</li>
+      <li><b>Deployments</b> → son yayın → <b>Retry deployment</b>.</li>
+    </ol>
+    <p class="not">Tablolar ilk kullanımda kendiliğinden kurulur. Gmail ve Claude bağlantısı sonra Ayarlar sekmesinde.</p>
+    <div class="actions"><button class="btn" type="button" data-act="yenidenDene">Yeniden kontrol et</button><a class="btn btn-quiet" href="/admin/">Yönetim paneline dön</a></div>
+  </div>
+</section>
+
+<div id="v-app" hidden>
+  <header class="top">
+    <div class="brand2">
+      <h1 class="logo">Influencer</h1>
+      <span class="brand-sub">Lulo Smaç! tanıtım paneli</span>
+    </div>
+    <span class="top-meta" id="topMeta"></span>
+    <button class="btn btn-primary" type="button" data-act="tab" data-tab="ekle">Aday ekle</button>
+  </header>
+  <div class="lanes" aria-hidden="true"><i class="lane-g"></i><i class="lane-r"></i><i class="lane-w"></i></div>
+
+  <nav class="tabs" role="tablist" aria-label="Bölümler">
+    <button class="tab" role="tab" type="button" data-act="tab" data-tab="adaylar" aria-selected="true">Adaylar</button>
+    <button class="tab" role="tab" type="button" data-act="tab" data-tab="ekle" aria-selected="false">İçe aktar</button>
+    <button class="tab" role="tab" type="button" data-act="tab" data-tab="gonderim" aria-selected="false">Gönderim <span class="badge" id="tabBadge" hidden></span></button>
+    <button class="tab" role="tab" type="button" data-act="tab" data-tab="ayarlar" aria-selected="false">Ayarlar</button>
+  </nav>
+
+  <main>
+    <section class="panel" id="p-adaylar" aria-label="Adaylar">
+      <div class="chips" id="chips" role="group" aria-label="Duruma göre filtrele"></div>
+      <div class="toolbar">
+        <label class="search"><span class="sr">Ara</span><input id="ara" type="search" placeholder="Ad, @kullanıcı adı, e-posta ya da şehir ara" autocomplete="off"></label>
+        <label><span class="sr">Sırala</span><select id="sirala">
+          <option value="puan">Uyum puanına göre</option>
+          <option value="takipci">Takipçiye göre</option>
+          <option value="etkilesim">Etkileşime göre</option>
+          <option value="yeni">Son eklenen</option>
+        </select></label>
+        <button class="btn btn-quiet" type="button" id="csvIndir" data-act="csvIndir" hidden>CSV indir</button>
+        <button class="btn btn-quiet" type="button" id="yedekIndir" data-act="yedekIndir" hidden>Yedek indir</button>
+        <button class="btn btn-quiet" type="button" id="ornekSil" data-act="ornekSil" hidden>Örnekleri sil</button>
+      </div>
+      <div class="liste" id="liste"><div class="bos"><p>Liste yükleniyor…</p></div></div>
+    </section>
+
+    <section class="panel" id="p-ekle" aria-label="İçe aktar" hidden>
+      <div class="imp-grid">
+        <div class="imp">
+          <h2>Instagram ekran görüntüsü</h2>
+          <p>Profil, bio ya da iletişim ekranlarını bırak. Claude görselleri okur, aynı hesabın görsellerini tek kişide birleştirir; eklemeden önce kontrol edersin.</p>
+          <label class="drop" id="dropSS">
+            <input type="file" id="fileSS" accept="image/png,image/jpeg,image/webp,image/gif" multiple>
+            <span class="drop-ikon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 9"/></svg></span>
+            <span>Görselleri seç ya da buraya bırak</span>
+            <small>Ekran görüntüsünü bu sekmeye yapıştırabilirsin de</small>
+          </label>
+          <p class="not" id="ssNot"></p>
+        </div>
+        <div class="imp">
+          <h2>Modash CSV</h2>
+          <p>Modash'tan dışa aktardığın listeyi bırak. Sütunlar kendiliğinden eşleşir, listedekiler işaretlenir; seçtiklerini eklersin.</p>
+          <label class="drop" id="dropCSV">
+            <input type="file" id="fileCSV" accept=".csv,text/csv">
+            <span class="drop-ikon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h6"/></svg></span>
+            <span>CSV seç ya da buraya bırak</span>
+            <small>Modash dışındaki listeler de olur</small>
+          </label>
+        </div>
+        <div class="imp">
+          <h2>Elle ekle</h2>
+          <form id="elleForm" class="elle-grid" novalidate>
+            <label class="f full">Kullanıcı adı ya da profil linki<input name="handle" autocomplete="off" placeholder="@kullaniciadi"></label>
+            <label class="f">Ad<input name="ad" autocomplete="off"></label>
+            <label class="f">E-posta<input name="email" type="email" autocomplete="off"></label>
+            <label class="f">Takipçi<input name="takipci" inputmode="decimal" placeholder="48,2 B" autocomplete="off"></label>
+            <label class="f">Etkileşim (%)<input name="etkilesim" inputmode="decimal" placeholder="4,6" autocomplete="off"></label>
+            <label class="f">Şehir<input name="sehir" autocomplete="off"></label>
+            <label class="f">Ülke<input name="ulke" autocomplete="off" placeholder="TR"></label>
+            <label class="f">Platform<select name="platform"><option value="instagram">Instagram</option><option value="tiktok">TikTok</option><option value="youtube">YouTube</option><option value="twitch">Twitch / Kick</option><option value="web">Web sitesi / medya</option></select></label>
+            <label class="f">İçerik alanı<select name="nis" id="elleNis"></select></label>
+            <label class="f full">Bio<textarea name="bio" rows="2"></textarea></label>
+            <button class="btn btn-primary full" type="submit">Ekle</button>
+          </form>
+        </div>
+        <div class="imp">
+          <h2>Yedekten yükle</h2>
+          <p>"Yedek indir" ile aldığın JSON dosyasını bırak. Listede olmayan kişiler eklenir, olanlara dokunulmaz.</p>
+          <label class="drop" id="dropJSON">
+            <input type="file" id="fileJSON" accept=".json,application/json">
+            <span class="drop-ikon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></span>
+            <span>Yedek dosyasını seç ya da buraya bırak</span>
+          </label>
+        </div>
+      </div>
+      <div id="inceleme"></div>
+    </section>
+
+    <section class="panel" id="p-gonderim" aria-label="Gönderim" hidden>
+      <div class="stats">
+        <div class="stat"><span>Bugün gönderilen</span><b id="stGun">0 / 20</b></div>
+        <div class="stat"><span>Onaylı, sırada bekleyen</span><b id="stOnay">0</b></div>
+        <div class="stat sicak"><span>Cevap bekleyen yazışma</span><b id="stCevap">0</b></div>
+      </div>
+      <div class="gmail-durum kapali" id="gmailDurum" role="status"><span class="gmail-dot" aria-hidden="true"></span><span>Gmail bağlantısına bakılıyor…</span></div>
+      <div class="blok">
+        <div class="blok-bas">
+          <h2>Bugünün önerileri</h2>
+          <p>Maili hazır adaylar arasından uyum puanı en yüksek olanlar, günlük sınıra göre. Onayladıkların gönderim sırasına girer.</p>
+        </div>
+        <div id="oneriler"></div>
+      </div>
+      <div class="blok">
+        <div class="blok-bas">
+          <h2>Gönderim sırası</h2>
+          <p id="siraAciklama"></p>
+        </div>
+        <div id="siraEylem"></div>
+        <div id="sira"></div>
+      </div>
+      <div class="blok">
+        <div class="blok-bas">
+          <h2>Cevap bekleyenler</h2>
+          <p id="cevapAciklama"></p>
+        </div>
+        <div id="cevapEylem"></div>
+        <div id="cevaplar"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="p-ayarlar" aria-label="Ayarlar" hidden>
+      <div class="banner" id="yenileBanner" hidden>
+        <span>Şablon ya da ayarlar değişti: şablondan hazırlanmış <b id="yenileSayi">0</b> mail güncellenebilir. Onaylanmış, elle düzenlenmiş ve gönderilmiş mailler değişmez.</span>
+        <button class="btn btn-gold btn-s" type="button" data-act="mailleriGuncelle">Mailleri güncelle</button>
+      </div>
+      <div class="ayar-grid">
+        <form id="ayarForm" novalidate>
+          <fieldset>
+            <legend>Gmail bağlantısı</legend>
+            <div id="gmailAyar"></div>
+          </fieldset>
+          <fieldset>
+            <legend>Claude</legend>
+            <div id="claudeAyar"></div>
+          </fieldset>
+          <fieldset>
+            <legend>Otomasyon</legend>
+            <div id="otoAyar"></div>
+            <label class="check"><input type="checkbox" id="a-oto"> Mailleri otomatik gönder</label>
+            <p class="not" id="otoGonderNot">Hafta içi 10:00–18:00 arasında, günlük sınır kadar mail güne yayılarak tek tek gider.</p>
+            <label class="f">Kimlere gitsin<select id="a-otoKapsam"><option value="hazir">Maili hazır olan herkes (önce onayladıkların)</option><option value="onay">Yalnızca onayladıklarım</option></select></label>
+            <label class="check"><input type="checkbox" id="a-otoCevap"> Cevapları otomatik kontrol et, Claude taslak yazsın</label>
+            <p class="not">10 dakikada bir Gmail'e bakar; gelen her cevaba Claude bir taslak hazırlar. Cevaplar yalnızca sen gönderince gider.</p>
+          </fieldset>
+          <fieldset>
+            <legend>Gönderen</legend>
+            <label class="f">Adın <small>Boş kalırsa mail “Lulo Smaç! ekibi” imzasıyla gider</small><input id="a-gonderenAd" autocomplete="off"></label>
+            <label class="f">Gönderen e-posta <small>Gmail'i bu adresle bağla; imzada da bu yazar</small><input id="a-gonderenEmail" type="email" autocomplete="off"></label>
+          </fieldset>
+          <fieldset>
+            <legend>Oyun</legend>
+            <label class="f">Yayın durumu <small>Mailin son satırı buna göre yazılır</small><select id="a-yayin"><option value="buhafta">Bu hafta App Store'da</option><option value="yakinda">Yakında App Store'da</option></select></label>
+            <label class="f">App Store bağlantısı <small>Girersen mail App Store'dan ücretsiz indirilebileceğini söyler ve linki verir</small><input id="a-appStore" type="url" placeholder="https://apps.apple.com/…" autocomplete="off"></label>
+          </fieldset>
+          <fieldset>
+            <legend>İmza</legend>
+            <label class="f">Şirket adı <small>Mailin en altında yazar</small><input id="a-sirket" autocomplete="off"></label>
+            <label class="f">Instagram<input id="a-instagram" type="url" autocomplete="off"></label>
+            <label class="f">TikTok<input id="a-tiktok" type="url" autocomplete="off"></label>
+            <label class="f">YouTube<input id="a-youtube" type="url" autocomplete="off"></label>
+            <label class="f">X<input id="a-x" type="url" placeholder="Boş kalırsa imzada görünmez" autocomplete="off"></label>
+            <label class="f">Facebook<input id="a-facebook" type="url" placeholder="Boş kalırsa imzada görünmez" autocomplete="off"></label>
+          </fieldset>
+          <fieldset>
+            <legend>Mail</legend>
+            <label class="f">Yeni adaylarda hitap<select id="a-hitap"><option value="sen">Samimi (sen)</option><option value="siz">Resmî (siz)</option></select></label>
+            <div class="f">İşbirliği fikirleri
+              <label class="check"><input type="checkbox" id="a-fikirErken"> Oyunu deneyip ilk izlenimi paylaşmak (medyada: haber ya da inceleme)</label>
+              <label class="check"><input type="checkbox" id="a-fikirKod"> “Arkadaşla” moduyla (aynı telefonda iki kişi) maç videosu</label>
+              <label class="check"><input type="checkbox" id="a-fikirLig"> Reklamsız, güvenli oyun arayan ailelere önermek (medyada: güvenli oyun listeleri)</label>
+            </div>
+            <label class="f">Günlük gönderim sınırı <small>Yeni bir adresten günde 20–30 mail spam'e düşmemek için güvenli; en fazla 100</small><input id="a-gunluk" type="number" min="1" max="100" inputmode="numeric"></label>
+            <label class="f">Claude cevap yazarken neyi bilsin? <small>Ücret, tarih, içerik gibi konularda sınırlarınız</small><textarea id="a-kosul" rows="3" placeholder="Örn. İlk aşamada ücretli işbirliği yok. Çocukların fotoğrafını ya da videosunu istemiyoruz."></textarea></label>
+          </fieldset>
+        </form>
+        <div>
+          <div class="blok-bas">
+            <h2>Önizleme</h2>
+            <p>Örnek bir aile içerik üreticisine giden mail. Her aday kendi adı ve içerik alanıyla bu şablondan kişiselleşir; yayın kuruluşlarına giden mail kendi fikir listesiyle gider.</p>
+          </div>
+          <div class="seg" role="group" aria-label="Önizleme dili" id="onizSeg">
+            <button type="button" data-act="onizDil" data-d="tr" aria-pressed="true">Türkçe</button>
+            <button type="button" data-act="onizDil" data-d="en" aria-pressed="false">İngilizce</button>
+          </div>
+          <div id="oniz"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Aday ayrıntısı" lang="tr"></aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/admin/assets/influencer.5aeb007d12.js" defer></script>
+</body>
+</html>
