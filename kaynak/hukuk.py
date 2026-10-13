@@ -3,7 +3,8 @@
 # oyun internete bağlanmaz, hesap yok, reklam/analiz/bildirim yok; satın almalar Apple'da ve ebeveyn kapısının arkasında.
 # {pub} = App Store'daki satıcı ve veri sorumlusu (Tipto ile aynı Apple ekibi GT9WNBHSG9).
 
-TARIH = {'tr': '3 Ekim 2026', 'en': 'October 3, 2026'}
+TARIH = {'tr': '3 Ekim 2026', 'en': 'October 3, 2026'}          # gizlilik
+TARIH_DESTEK = {'tr': '13 Ekim 2026', 'en': 'October 13, 2026'}  # destek (oyun iki dilli)
 EPOSTA = 'support@lulosmac.com'
 
 YAYINCI = {
@@ -59,6 +60,7 @@ DESTEK = {
         'kisaca': "Bir sorun mu var? support@lulosmac.com adresine yazın. Cihazınızın modelini ve iOS sürümünü eklerseniz daha hızlı yardımcı oluruz.",
         'sss': [
             ('Nasıl oynanır?', "Tek parmakla. Servis: basılı tutun, güç çubuğu yeşil bölgeye gelince bırakın. Karşılama: top sizin sahanıza düşecekse kumda bir halka çıkar; halka daralıp oturduğu an dokunun, \"Mükemmel!\" olur. Smaç: arkadaşınız pası kendisi atar; karakteriniz sıçrarken kaydırın ya da tepe noktasında dokunun. 7 sayıyı ilk alan maçı kazanır."),
+            ('Oyun hangi dillerde?', "Türkçe ve İngilizce. Telefonun dili Türkçeyse oyun Türkçe, değilse İngilizce açılır. Bir büyük, Spor Dükkânı → Ebeveyn Köşesi → Aile Bilgisi → Dil / Language'dan değiştirebilir."),
             ('Satın aldıklarım yeni cihazda görünmüyor', "Spor Dükkânı → Ebeveyn Köşesi → Aile Bilgisi → Satın Alınanları Geri Yükle'ye dokunun. Cihazda aynı Apple Hesabı ile giriş yapılmış olmalı."),
             ('İade nasıl istenir?', "Spor Dükkânı → Ebeveyn Köşesi → Aile Bilgisi → İade İste'ye dokunun ya da reportaproblem.apple.com adresini kullanın. İadeleri Apple değerlendirir."),
             ('Ebeveyn kapısı nedir?', "Fiyatları görmeden, satın almadan, geri yüklemeden ve iade istemeden önce iki sayının çarpımı sorulur (örneğin 17 × 6). Üç yanlış cevaptan sonra 30 saniye beklemek gerekir."),
@@ -73,11 +75,12 @@ DESTEK = {
         'aciklama': "Lulo Smaç! support: restoring purchases, refunds, Family Sharing, the parental gate and how to contact us.",
         'kisaca': "Something not working? Write to support@lulosmac.com. Adding your device model and iOS version helps us help you faster.",
         'sss': [
-            ('How do I play?', "With one finger. Serve: press and hold, then let go when the power bar is in the green. Receive: if the ball is going to land on your side, a ring appears on the sand; tap the moment it shrinks into place for a \"Mükemmel!\" (Perfect!). Spike: your teammate sets the ball; swipe while your character jumps, or tap at the very top. The first team to 7 points wins the match. The game is in Turkish."),
-            ("My purchases don't show on my new device", "Tap Spor Dükkânı (Sports Shop) → Ebeveyn Köşesi (Parents' Corner) → Aile Bilgisi (Family Info) → Satın Alınanları Geri Yükle (Restore Purchases). The device must be signed in with the same Apple Account."),
-            ('How do I ask for a refund?', "Tap Spor Dükkânı (Sports Shop) → Ebeveyn Köşesi (Parents' Corner) → Aile Bilgisi (Family Info) → İade İste (Request a Refund), or use reportaproblem.apple.com. Refunds are decided by Apple."),
+            ('How do I play?', "With one finger. Serve: press and hold, then let go when the power bar is in the green. Receive: if the ball is going to land on your side, a ring appears on the sand; tap the moment it shrinks into place for a \"Perfect!\". Spike: your teammate sets the ball; swipe while your character jumps, or tap at the very top. The first team to 7 points wins the match."),
+            ('Which languages does the game speak?', "English and Turkish. The game opens in Turkish on a Turkish device and in English on every other device. A grown-up can switch it in Sports Shop → Parents' Corner → Family Info → Dil / Language."),
+            ("My purchases don't show on my new device", "Tap Sports Shop → Parents' Corner → Family Info → Restore Purchases. The device must be signed in with the same Apple Account."),
+            ('How do I ask for a refund?', "Tap Sports Shop → Parents' Corner → Family Info → Request a Refund, or use reportaproblem.apple.com. Refunds are decided by Apple."),
             ('What is the parental gate?', "Before seeing prices, buying, restoring or asking for a refund, the game asks for the product of two numbers (for example 17 × 6). After three wrong answers there is a 30-second wait."),
-            ('Family Sharing and Ask to Buy', "Bought packs also unlock on the other devices in Family Sharing. With Ask to Buy on, the request comes to you; until you approve it, the pack shows as \"Onayda\" (Pending)."),
+            ('Family Sharing and Ask to Buy', "Bought packs also unlock on the other devices in Family Sharing. With Ask to Buy on, the request comes to you; until you approve it, the pack shows as \"Pending\"."),
             ('What is sold in the game?', "Only looks: costume, pattern, accessory, dance and running trail packs. Speed and jumping are earned by playing. Coins, loot boxes and limited-time offers are never sold. Purchases are permanent."),
             ('Where is progress saved?', "Only on the device. If the app is deleted, the progress is deleted too."),
             ('Does the game need the internet?', "No, the whole game plays offline. You only need the internet to buy, restore or ask for a refund."),

@@ -9,7 +9,7 @@ from PIL import Image
 
 KOK = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, KOK)
-from hukuk import GIZLILIK, DESTEK, SOZ, TARIH, EPOSTA, YAYINCI
+from hukuk import GIZLILIK, DESTEK, SOZ, TARIH, TARIH_DESTEK, EPOSTA, YAYINCI
 
 OYUN = '/home/claude/lulo-smac'
 OUT = f'{KOK}/yayin'
@@ -216,7 +216,7 @@ def metin_sayfasi(dil, tur):
 <img class="kisi" src="{kok}img/{kisi[0]}" alt="" width="512" height="512">
 <p class="ust-yazi">Lulo Smaç!</p>
 <h1>{e(D['baslik'])}</h1>
-<p class="tarih">{e(S['guncel'])}: {e(TARIH[dil])}</p>
+<p class="tarih">{e(S['guncel'])}: {e((TARIH_DESTEK if tur == 'destek' else TARIH)[dil])}</p>
 <p class="kisaca">{e(D['kisaca'])}</p>
 {icerik}
 <p class="geri"><a class="hap" href="{kok}">← {e(S['ana'])}</a></p>
