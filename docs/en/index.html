@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lulo Smaç!</title>
 <meta name="description" content="Lulo Sports School joins the race! One-finger beach volleyball with 12 silly animals. Goal: the Big Cup. No ads, no data collected, plays offline.">
+<meta name="apple-itunes-app" content="app-id=6818317005">
 <link rel="canonical" href="https://lulosmac.com/en/">
 <link rel="alternate" hreflang="tr" href="https://lulosmac.com/">
 <link rel="alternate" hreflang="en" href="https://lulosmac.com/en/">
@@ -101,6 +102,8 @@ button { font: inherit; color: inherit; }
 .ipucu b { color: var(--mavi); }
 .alt .hap { font-size: 17px; box-shadow: 0 4px 0 var(--cizgi); cursor: default; }
 .alt .hap:active { transform: none; }
+.alt .hap.indir { pointer-events: auto; cursor: pointer; }
+.alt .hap.indir:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--cizgi); }
 .asagi { pointer-events: auto; text-decoration: none; font-weight: 600; font-size: 15px; display: inline-flex; flex-direction: column; align-items: center; gap: 0; }
 .asagi svg { width: 22px; height: 14px; animation: asagi 1.4s ease-in-out infinite; }
 @keyframes asagi { 50% { transform: translateY(5px); } }
@@ -251,7 +254,7 @@ footer a { color: var(--sari); }
     </div>
     <div class="alt">
       <p class="ipucu" id="ipucu" aria-live="polite"><b>TAP</b> when the ring closes to bump the ball!</p>
-      <span class="hap sari">Coming soon to the App Store</span>
+      <a class="hap sari indir" href="https://apps.apple.com/app/lulo-sma%C3%A7/id6818317005">Download on the App Store</a>
       <a class="asagi" href="#hikaye">Meet the school<svg viewBox="0 0 22 14" aria-hidden="true"><path d="M3 3l8 8 8-8" stroke="#362234" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <button class="gizli" id="vurDugme">Hit the ball</button>
@@ -327,6 +330,7 @@ footer a { color: var(--sari); }
         <div class="balon"><p>"On my court the rule is simple: lots of fun, zero ads. Got a question? Blow the whistle, I mean, write to us!"</p></div>
       </div>
       <div class="iletisim">
+        <a class="hap sari" href="https://apps.apple.com/app/lulo-sma%C3%A7/id6818317005">Download on the App Store</a>
         <span class="eposta" id="eposta">support@lulosmac.com</span>
         <button class="hap" id="kopyala" type="button">Copy address</button>
         <a class="hap" href="support/">Support</a>
